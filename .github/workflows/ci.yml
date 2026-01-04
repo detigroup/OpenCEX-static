@@ -11,7 +11,7 @@ jobs:
     environment: develop
     steps:
       - name: Run deploy commands on server
-        if: github.ref_name == 'develop'
+        if: github.ref_name == 'master'
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ vars.SSH_HOSTP }}
@@ -20,7 +20,7 @@ jobs:
           key: ${{ vars.SSH_KEY }}
           script: |
             cd /app/opencex/nuxt/
-            git checkout develop
+            git checkout master
             git pull
             sudo docker build -t nuxt -f deploy/Dockerfile .
             cd /app/opencex/
