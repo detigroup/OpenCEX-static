@@ -14,9 +14,9 @@ jobs:
         if: github.ref_name == 'develop'
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ vars.SSH_HOST }}
+          host: ${{ vars.SSH_HOSTP }}
           username: ${{ vars.SSH_USER }}
-          port: ${{ vars.SSH_PORT }}
+          port: ${{ vars.SSH_PORTP }}
           key: ${{ vars.SSH_KEY }}
           script: |
             cd /app/opencex/nuxt/
